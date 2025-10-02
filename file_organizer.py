@@ -22,7 +22,17 @@ def organizeFiles(directory):
     'Archives': ['.zip', '.rar', '.tar', '.gz'],
     'Scripts': ['.py', '.sh', '.js', '.html'],
     'Audio': ['.mp3', '.wav', '.flac', '.aac']
-    }
+  }
+
+  for item in os.listdir():
+    if os.path.isdir(item):
+        continue 
+    
+    #case: if the item is the main script itself
+    if item == os.path.basename(__file__):
+        continue
+
+    print(f"Processing file: {item}")
 
   #TODO: Other logic to be added
   pass
