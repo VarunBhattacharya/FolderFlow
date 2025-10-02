@@ -12,12 +12,12 @@
 
 ### Prerequisites
 
-You only need **Python 3.x** installed on your system. No externalghj libraries are needed beyond Python's standard library (`os`, `shutil`).
+You only need **Python 3.x** installed on your system. No external libraries are needed beyond Python's standard library (`os`, `shutil`).
 
 ### Installation
 
 1.  **Clone or Download:** Get a copy of the script (`file_organizer.py`).
-2.  **Define Target:** **IMPORTANT:** Open the script and change the `TARGET_DIR` variableasd to the absolute path of the folder you want to organize.
+2.  **Define Target:** **IMPORTANT:** Open the script and change the `TARGET_DIR` variable to the absolute path of the folder you want to organize.
 
     ```python
     # file_organizer.py
@@ -34,11 +34,11 @@ You only need **Python 3.x** installed on your system. No externalghj libraries 
     python file_organizer.py
     ```
 
-The script will print a log of every file it movesasd and any folders it creates.
+The script will print a log of every file it moves and any folders it creates.
 
 ## Customization (File Types)
 
-You can easily adjust the organization logic by modifying the `file_types` dictionary inside the ssdcscript:
+You can easily adjust the organization logic by modifying the `file_types` dictionary inside the script:
 
 ```python
     file_types = {
