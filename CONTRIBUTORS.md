@@ -30,4 +30,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
 <li>
   <ul>The current code will just set the TARGET_DIR and will accomodate switching it to the directory although it is not put to use as out of scope for [Issue-1](https://github.com/VarunBhattacharya/FolderFlow/issues/1).</ul>
   <ul>Fixed typos in Readme file which was giving wrong meaning. (Minor bug)</ul>
+  <ul>Added changes for file types which we can use for sorting directories as outlined in [Issue-2](https://github.com/VarunBhattacharya/FolderFlow/issues/2).</ul>
 </li>
