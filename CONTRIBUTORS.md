@@ -9,6 +9,7 @@ The maintainer is responsible for the overall direction of the project, reviewin
 | Name | Role | GitHub Handle (or link) |
 |---|---|---|
 | Varun Bhattacharya | Initial Author / Maintainer | [http://github.com/VarunBhattacharya](http://github.com/VarunBhattacharya) |
+| Loopy Doop | Author 1 | [https://github.com/ALoopyDoop](https://github.com/ALoopyDoop) |
 
 ---
 
@@ -16,7 +17,9 @@ The maintainer is responsible for the overall direction of the project, reviewin
 
 These individuals have had their code contributions merged into the main branch of the repository.
 
-*This section is currently empty. Your name will appear here after your first merged Pull Request!*
+<li>
+  <ul>Loopy Doop</ul>
+</li>
 
 ---
 
@@ -24,4 +27,6 @@ These individuals have had their code contributions merged into the main branch 
 
 This section is for anyone who provides valuable input, reports bugs, or suggests great features without necessarily submitting code.
 
-*None yet. Be the first to open an issue!*
+<li>
+  <ul>The current code will just set the TARGET_DIR and will accomodate switching it to the directory although it is not put to use as out of scope for [Issue-1](https://github.com/VarunBhattacharya/FolderFlow/issues/1).</ul>
+</li>
