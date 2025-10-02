@@ -13,6 +13,16 @@ def organizeFiles(directory):
     return
 
   print(f"Starting organization in: {directory}")
+  
+  #Added file types dictionary which will be parsed later on as part of issue-2
+  fileTypes = {
+    'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg'],
+    'Videos': ['.mp4', '.mov', '.avi', '.mkv'],
+    'Documents': ['.pdf', '.doc', '.docx', '.txt', '.ppt', '.xlsx'],
+    'Archives': ['.zip', '.rar', '.tar', '.gz'],
+    'Scripts': ['.py', '.sh', '.js', '.html'],
+    'Audio': ['.mp3', '.wav', '.flac', '.aac']
+    }
 
   #TODO: Other logic to be added
   pass
