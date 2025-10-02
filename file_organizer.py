@@ -31,6 +31,9 @@ def organizeFiles(directory):
     #case: if the item is the main script itself
     if item == os.path.basename(__file__):
         continue
+    
+    _, extension = os.path.splitext(item) 
+    extension = extension.lower() #normalizing the extension to smaller case if any
 
     print(f"Processing file: {item}")
 
