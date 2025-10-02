@@ -35,6 +35,14 @@ def organizeFiles(directory):
     _, extension = os.path.splitext(item) 
     extension = extension.lower() #normalizing the extension to smaller case if any
 
+    #check for finding the extension if available in fileTypes dictionary
+    destFolder = "Others"
+    for folder, extensions in file_types.items():
+      if extension in extensions:
+          destFolder = folder
+          break
+
+
     print(f"Processing file: {item}")
 
   #TODO: Other logic to be added

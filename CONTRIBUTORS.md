@@ -33,4 +33,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <ul>Added changes for file types which we can use for sorting directories as outlined in [Issue-2](https://github.com/VarunBhattacharya/FolderFlow/issues/2).</ul>
   <ul>Added loop code for traversal and handled edge case for movement of files in directories as outlined in [Issue-3](https://github.com/VarunBhattacharya/FolderFlow/issues/3).</ul>
   <ul>Added extraction of file extension login in loop as outlined in [Issue-4](https://github.com/VarunBhattacharya/FolderFlow/issues/4).</ul>
+  <ul>Setting of file extension folder logic in loop as outlined in [Issue-5](https://github.com/VarunBhattacharya/FolderFlow/issues/5).</ul>
 </li>
