@@ -41,12 +41,18 @@ def organizeFiles(directory):
       if extension in extensions:
           destFolder = folder
           break
+    
+    #if destination folder doesn't exist then below part will create it.
+    if not os.path.exists(destFolder):
+        os.makedirs(destFolder)
+        print(f"[CREATED] Folder: {destFolder}")
+    
+    destPath = os.path.join(destFolder, item)
 
+    #TODO: Add logic for moving the code to destination path and throw error correspondingly.
 
-    print(f"Processing file: {item}")
+    print("File Organization completed.")
 
-  #TODO: Other logic to be added
-  pass
 
 #Main Method
 def main():
