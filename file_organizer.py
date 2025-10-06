@@ -4,6 +4,22 @@ import shutil
 
 TARGET_DIR = "/folder-to-organize" #need to change from user to user
 
+def moveFile(source,destination):
+  #move a file from its source path to a destination path
+  try:
+      if not os.path.exists(source):
+          print(f"Error: File not found at {source}")
+          return False
+      if os.path.exists(destination):
+          print(f"Warning: File already exists at {destination}, skipping.")
+          return False
+      shutil.move(source, destination)
+      print(f"move {source} -> {destination}")
+      return True
+  except (shutil.Error, OSError) as e:
+      print(f"Error moving {source} to {destination}: {e}")
+      return False
+  
 def organizeFiles(directory):
   #changes the current working directory to the target directory
   try:
@@ -15,7 +31,7 @@ def organizeFiles(directory):
   print(f"Starting organization in: {directory}")
   
   #Added file types dictionary which will be parsed later on as part of issue-2
-  fileTypes = {
+  file_types = {
     'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg'],
     'Videos': ['.mp4', '.mov', '.avi', '.mkv'],
     'Documents': ['.pdf', '.doc', '.docx', '.txt', '.ppt', '.xlsx'],
@@ -47,7 +63,9 @@ def organizeFiles(directory):
         os.makedirs(destFolder)
         print(f"[CREATED] Folder: {destFolder}")
     
-    destPath = os.path.join(destFolder, item)
+    srcpath=os.path.join(directory,item)
+    despath=os.path.join(directory,destFolder,item)
+    moveFile(srcpath,despath)
 
     #TODO: Add logic for moving the code to destination path and throw error correspondingly.
 
