@@ -17,9 +17,10 @@ The maintainer is responsible for the overall direction of the project, reviewin
 
 These individuals have had their code contributions merged into the main branch of the repository.
 
-<li>
-  <ul>Loopy Doop</ul>
-</li>
+<ul>
+  <li>Loopy Doop</li>
+  <li>DagaBhai</li>
+</ul>
 
 ---
 
