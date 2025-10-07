@@ -17,9 +17,10 @@ The maintainer is responsible for the overall direction of the project, reviewin
 
 These individuals have had their code contributions merged into the main branch of the repository.
 
-<li>
-  <ul>Loopy Doop</ul>
-</li>
+<ul>
+  <li>Loopy Doop</li>
+  <li>DagaBhai</li>
+</ul>
 
 ---
 
@@ -35,4 +36,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <ul>Added extraction of file extension login in loop as outlined in [Issue-4](https://github.com/VarunBhattacharya/FolderFlow/issues/4).</ul>
   <ul>Setting of file extension folder logic in loop as outlined in [Issue-5](https://github.com/VarunBhattacharya/FolderFlow/issues/5).</ul>
   <ul>Create destination path folder if it doesn't exist in the system [Issue-6](https://github.com/VarunBhattacharya/FolderFlow/issues/6).</ul>
+  <ul>Implemented a concise moveFile function for efficient file movement with error handling[Issue-7](https://github.com/VarunBhattacharya/FolderFlow/issues/7).</ul>
 </li>
