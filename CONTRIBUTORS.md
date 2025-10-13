@@ -36,5 +36,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <ul>Added extraction of file extension login in loop as outlined in [Issue-4](https://github.com/VarunBhattacharya/FolderFlow/issues/4).</ul>
   <ul>Setting of file extension folder logic in loop as outlined in [Issue-5](https://github.com/VarunBhattacharya/FolderFlow/issues/5).</ul>
   <ul>Create destination path folder if it doesn't exist in the system [Issue-6](https://github.com/VarunBhattacharya/FolderFlow/issues/6).</ul>
-  <ul>Implemented a concise moveFile function for efficient file movement with error handling[Issue-7](https://github.com/VarunBhattacharya/FolderFlow/issues/7).</ul>
+  <ul>Added test file to verify the file-sorting mechanism as outlined in [Issue-9](https://github.com/VarunBhattacharya/FolderFlow/issues/9)</ul>
 </li>

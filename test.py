@@ -5,6 +5,7 @@ import tempfile
 from file_organizer import organizeFiles
 
 class TestFileOrgarnizer(unittest.TestCase):
+    
     def setUp(self):
         self.test_dir = tempfile.mkdtemp()
 

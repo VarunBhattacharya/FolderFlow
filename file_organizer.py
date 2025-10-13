@@ -65,4 +65,3 @@ def organizeFiles(directory):
     moveFile(srcpath,despath)
 
     print("File Organization completed.")
-   
