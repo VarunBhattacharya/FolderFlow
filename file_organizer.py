@@ -1,8 +1,5 @@
-#Imports
 import os
 import shutil
-
-TARGET_DIR = "/folder-to-organize" #need to change from user to user
 
 def moveFile(source,destination):
   #move a file from its source path to a destination path
@@ -67,16 +64,5 @@ def organizeFiles(directory):
     despath=os.path.join(directory,destFolder,item)
     moveFile(srcpath,despath)
 
-    #TODO: Add logic for moving the code to destination path and throw error correspondingly.
-
     print("File Organization completed.")
-
-
-#Main Method
-def main():
-  #Code here
-  organizeFiles(TARGET_DIR)
-
-
-if __name__ == "__main__":
-  main()
+   
