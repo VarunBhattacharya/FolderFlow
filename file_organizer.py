@@ -31,13 +31,22 @@ def organizeFiles(directory):
   
   #Added file types dictionary which will be parsed later on as part of issue-2
   file_types = {
-    'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg'],
-    'Videos': ['.mp4', '.mov', '.avi', '.mkv'],
-    'Documents': ['.pdf', '.doc', '.docx', '.txt', '.ppt', '.xlsx'],
-    'Archives': ['.zip', '.rar', '.tar', '.gz'],
-    'Scripts': ['.py', '.sh', '.js', '.html'],
-    'Audio': ['.mp3', '.wav', '.flac', '.aac']
-  }
+    'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.bmp', '.tiff', '.webp', '.ico'],
+    'Videos': ['.mp4', '.mov', '.avi', '.mkv', '.flv', '.wmv', '.webm'],
+    'Documents': ['.pdf', '.doc', '.docx', '.txt', '.ppt', '.pptx', '.xls', '.xlsx', '.odt', '.rtf', '.md'],
+    'Archives': ['.zip', '.rar', '.tar', '.gz', '.7z', '.bz2', '.xz', '.iso'],
+    'Scripts': ['.py', '.sh', '.js', '.html', '.css', '.ts', '.jsx', '.tsx', '.php', '.rb', '.java', '.c', '.cpp'],
+    'Audio': ['.mp3', '.wav', '.flac', '.aac', '.ogg', '.m4a', '.wma'],
+    'Fonts': ['.ttf', '.otf', '.woff', '.woff2'],
+    'Executables': ['.exe', '.msi', '.bat', '.apk', '.app', '.deb', '.rpm'],
+    'Spreadsheets': ['.xls', '.xlsx', '.ods', '.csv'],
+    'Databases': ['.db', '.sqlite', '.sql', '.mdb', '.accdb'],
+    'Code Notebooks': ['.ipynb', '.rmd'],
+    '3D Models': ['.obj', '.fbx', '.stl', '.dae', '.gltf'],
+    'Design Files': ['.psd', '.ai', '.xd', '.sketch', '.fig'],
+    'Logs': ['.log', '.out'],
+    'Configs': ['.ini', '.cfg', '.yaml', '.yml', '.toml', '.env']
+}
 
   for item in os.listdir():
     if os.path.isdir(item):
