@@ -1,7 +1,7 @@
 import os
 import shutil
 
-TARGET_DIR = "/folder-to-organize" #need to change from user to user
+TARGET_DIR = input("Enter folder path to organize: ")
 
 def moveFile(source,destination):
   #move a file from its source path to a destination path
