@@ -39,6 +39,6 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <ul>Create destination path folder if it doesn't exist in the system [Issue-6](https://github.com/VarunBhattacharya/FolderFlow/issues/6).</ul>
   <ul>Implemented a concise moveFile function for efficient file movement with error handling[Issue-7](https://github.com/VarunBhattacharya/FolderFlow/issues/7).</ul>
   <ul>Added test file to verify the file-sorting mechanism as outlined in [Issue-9](https://github.com/VarunBhattacharya/FolderFlow/issues/9)</ul>
-  <ul>Added more content to file_types dicitonary for better classification of items in the directory, as outlined in [Issue28]
-  (https://github.com/VarunBhattacharya/FolderFlow/issues/28)</ul>
+  <ul>Added more content to file_types dicitonary for better classification of items in the directory, as outlined in [Issue28](https://github.com/VarunBhattacharya/FolderFlow/issues/28)</ul>
+  <ul>Implemented logic to capture folder path after program run as outlined in [Issue-29](https://github.com/VarunBhattacharya/FolderFlow/issues/29)</ul>
 </li>
