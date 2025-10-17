@@ -21,6 +21,7 @@ These individuals have had their code contributions merged into the main branch 
   <li>Loopy Doop</li>
   <li>DagaBhai</li>
   <li>pkbros</li>
+  <li>yuvii-b</li>
 </ul>
 
 ---
@@ -42,4 +43,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <li>Added more content to file_types dicitonary for better classification of items in the directory, as outlined in [Issue-28]
   (https://github.com/VarunBhattacharya/FolderFlow/issues/28)</li>
   <li> Rectified formatting issues in CONTRIBUTORS.md file as outlined in [Issue-32](https://github.com/VarunBhattacharya/FolderFlow/issues/32)</li>
+  <li> Added recursive folder organization feature as outlined in [Issue-33](https://github.com/VarunBhattacharya/FolderFlow/issues/33)</li>
 </ul>
