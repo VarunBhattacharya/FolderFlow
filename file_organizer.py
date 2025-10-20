@@ -1,20 +1,27 @@
 import os
 import shutil
+from utils import main_heading, lined_input, error_print, lined_print, color_print
+
+#Main heading
+main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
+
+
+TARGET_DIR = lined_input("Enter folder path to organize")
 
 def moveFile(source,destination):
   #move a file from its source path to a destination path
   try:
       if not os.path.exists(source):
-          print(f"Error: File not found at {source}")
+          error_print(f"File not found at {source}", type="error")
           return False
       if os.path.exists(destination):
-          print(f"Warning: File already exists at {destination}, skipping.")
+          error_print(f"File already exists at {destination}, skipping.", type="warning")
           return False
       shutil.move(source, destination)
-      print(f"move {source} -> {destination}")
+      color_print(f"move {source} -> {destination}",color="cyan")
       return True
   except (shutil.Error, OSError) as e:
-      print(f"Error moving {source} to {destination}: {e}")
+      error_print(f"Error moving {source} to {destination}: {e}", type="error")
       return False
   
 def organizeFiles(directory, recursive=False):
@@ -23,7 +30,7 @@ def organizeFiles(directory, recursive=False):
   try:
     os.chdir(directory)
   except FileNotFoundError:
-    print(f"Error: Directory not found at {directory}")
+    error_print(f"Error: Directory not found at {directory}", type="error")
     return
   try:
     print(f"Starting organization in: {directory}")
