@@ -26,7 +26,7 @@ def moveFile(source,destination):
           error_print(f"File already exists at {destination}, skipping.", type="warning")
           return False
       shutil.move(source, destination)
-      color_color_print(f"move {source} -> {destination}",color="cyan",color="cyan")
+      color_print(f"move {source} -> {destination}",color="cyan",color="cyan")
       return True
   except (shutil.Error, OSError) as e:
       error_print(f"Error moving {source} to {destination}: {e}", type="error")
