@@ -5,7 +5,13 @@ from utils import main_heading, lined_input, error_print, lined_print, color_pri
 #Main heading
 main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
 
+from utils import main_heading, lined_input, error_print, lined_print, color_print
 
+#Main heading
+main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
+
+
+TARGET_DIR = lined_input("Enter folder path to organize")
 TARGET_DIR = lined_input("Enter folder path to organize")
 
 def moveFile(source,destination):
@@ -13,14 +19,17 @@ def moveFile(source,destination):
   try:
       if not os.path.exists(source):
           error_print(f"File not found at {source}", type="error")
+          error_print(f"File not found at {source}", type="error")
           return False
       if os.path.exists(destination):
           error_print(f"File already exists at {destination}, skipping.", type="warning")
+          error_print(f"File already exists at {destination}, skipping.", type="warning")
           return False
       shutil.move(source, destination)
-      color_print(f"move {source} -> {destination}",color="cyan")
+      color_color_print(f"move {source} -> {destination}",color="cyan",color="cyan")
       return True
   except (shutil.Error, OSError) as e:
+      error_print(f"Error moving {source} to {destination}: {e}", type="error")
       error_print(f"Error moving {source} to {destination}: {e}", type="error")
       return False
   
