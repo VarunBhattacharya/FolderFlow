@@ -2,34 +2,20 @@ import os
 import shutil
 from utils import main_heading, lined_input, error_print, lined_print, color_print
 
-#Main heading
-main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
-
-from utils import main_heading, lined_input, error_print, lined_print, color_print
-
-#Main heading
-main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
-
-
-TARGET_DIR = lined_input("Enter folder path to organize")
-TARGET_DIR = lined_input("Enter folder path to organize")
 
 def moveFile(source,destination):
   #move a file from its source path to a destination path
   try:
       if not os.path.exists(source):
           error_print(f"File not found at {source}", type="error")
-          error_print(f"File not found at {source}", type="error")
           return False
       if os.path.exists(destination):
           error_print(f"File already exists at {destination}, skipping.", type="warning")
-          error_print(f"File already exists at {destination}, skipping.", type="warning")
           return False
       shutil.move(source, destination)
-      color_print(f"move {source} -> {destination}",color="cyan",color="cyan")
+      color_print(f"move {source} -> {destination}",color="#51BE9F")
       return True
   except (shutil.Error, OSError) as e:
-      error_print(f"Error moving {source} to {destination}: {e}", type="error")
       error_print(f"Error moving {source} to {destination}: {e}", type="error")
       return False
   
@@ -113,11 +99,11 @@ def organizeFiles(directory, recursive=False):
 
           despath = os.path.join(destination_root, filename)
           if os.path.exists(despath):
-            lined_print(f"[SKIPPED] {filename} already exists in {destination_root}", color="#40A7FB")
+            error_print(f"[SKIPPED] {filename} already exists in {destination_root}",type="warning")
             continue
           moveFile(srcpath, despath)
 
-      lined_print("File organization completed.", color="green", line_style="=*=")
+    lined_print("File organization completed.", color="green", line_style="=*=")
   finally:
     # restore original working directory to avoid side effects
     try:
@@ -128,8 +114,9 @@ def organizeFiles(directory, recursive=False):
 
 #Main Method
 def main():
-  target = input("Enter folder path to organize: ")
-  organizeFiles(target, recursive=False)
+  main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
+  TARGET_DIR = lined_input("Enter folder path to organize")
+  organizeFiles(TARGET_DIR, recursive=False)
 
 
 if __name__ == "__main__":
