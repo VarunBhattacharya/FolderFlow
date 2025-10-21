@@ -30,10 +30,10 @@ def organizeFiles(directory, recursive=False):
   try:
     os.chdir(directory)
   except FileNotFoundError:
-    error_print(f"Error: Directory not found at {directory}", type="error")
+    error_print(f"Directory not found at {directory}", type="error")
     return
   try:
-    print(f"Starting organization in: {directory}")
+    lined_print(f"Starting organization in: {directory}", color="#F97910")
 
     # Added file types dictionary which will be parsed later on as part of issue-2
     file_types = {
@@ -76,7 +76,7 @@ def organizeFiles(directory, recursive=False):
         destFolder = categorize_extension(item)
         if not os.path.exists(destFolder):
           os.makedirs(destFolder)
-          print(f"[CREATED] Folder: {destFolder}")
+          lined_print(f"[CREATED] Folder: {destFolder}", color="#8E16FF")
         srcpath = os.path.join(directory, item)
         despath = os.path.join(directory, destFolder, item)
         moveFile(srcpath, despath)
@@ -100,15 +100,15 @@ def organizeFiles(directory, recursive=False):
           destination_root = os.path.join(directory, destFolder, relpath)
           if not os.path.exists(destination_root):
             os.makedirs(destination_root)
-            print(f"[CREATED] Folder: {destination_root}")
+            lined_print(f"[CREATED] Folder: {destination_root}", color="#8E16FF")
 
           despath = os.path.join(destination_root, filename)
           if os.path.exists(despath):
-            print(f"[SKIPPED] {filename} already exists in {destination_root}")
+            lined_print(f"[SKIPPED] {filename} already exists in {destination_root}", color="#40A7FB")
             continue
           moveFile(srcpath, despath)
 
-      print("File organization completed.")
+      lined_print("File organization completed.", color="green", line_style="=*=")
   finally:
     # restore original working directory to avoid side effects
     try:
