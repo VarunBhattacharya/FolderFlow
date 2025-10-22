@@ -1,7 +1,7 @@
 import os
 import shutil
 import hashlib
-from utils import main_heading, lined_input, error_print, lined_print, color_print
+from utils import main_heading, lined_input, error_print, lined_print, color_print, optional_input, default_directory_paths
 
 # Global counters
 duplicates_found = 0
@@ -138,10 +138,18 @@ def organize_files(directory, recursive=False):
 
 
 def main():
-    main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
-    target_dir = lined_input("Enter folder path to organize")
-    organize_files(target_dir, recursive=False)
+  main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
 
+  #default folder location or manual input
+  desktop_location, downloads_location = default_directory_paths()
+  target_dir = optional_input("Choose an option or put your own directory path",["Downlaods","Desktop"],"Downloads","Target Directory")
+  if(target_dir.lower() == "downloads" or target_dir == "1"):
+    target_dir = downloads_location
+  elif(target_dir.lower()=="desktop" or target_dir == "2"):
+    target_dir = desktop_location
+  lined_print(f"Target Directory>>> {target_dir}")
+
+  organize_files(target_dir, recursive=False)
 
 if __name__ == "__main__":
     main()

@@ -3,6 +3,7 @@ from rich.panel import Panel
 from rich.text import Text
 from rich.rule import Rule
 from rich.prompt import Prompt
+from os.path import expanduser
 
 
 console = Console()
@@ -51,8 +52,32 @@ def error_print(text, type="error"):
 def lined_print(text,line_style="─", color="cyan"):
     console.print(Rule(f"[bold]{text}",style=color,align="center",characters=line_style))
 
-def color_print(text, color):
+def color_print(text, color="white"):
     console.print(f"[{color}]{text}")
+
+def default_directory_paths():
+    home_dir = expanduser("~")
+    desktop_path = home_dir + "\\Desktop"
+    downloads_path = home_dir + "\\Downloads"
+    return desktop_path, downloads_path
+
+
+def optional_input(
+    input_text: str = "Your input here",
+    options: list = ["op1", "op2"],
+    default: str = "op1(say)",
+    title: str = "options",
+) -> str:
+    option_text = "\n".join(
+        f"[bold cyan]{i+1}.[/bold cyan] {option}" for i, option in enumerate(options)
+    )
+    console.print(
+        Panel(option_text, title=title, subtitle=f"def: {default}", expand=False)
+    )
+    choice = Prompt.ask(input_text, default=default)
+    return choice
+
+
 
 if __name__ == "__main__":
     main_heading("Main Heading", "This is the description")
@@ -61,3 +86,6 @@ if __name__ == "__main__":
     error_print("This is an error", type="error")
     lined_print("This is a lined print", color="#8E16FF")
     color_print("This is colored print")
+    desktop, download = default_directory_paths()
+    print(desktop, download)
+    print(optional_input())
