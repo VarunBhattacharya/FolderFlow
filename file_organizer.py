@@ -1,6 +1,6 @@
 import os
 import shutil
-from utils import main_heading, lined_input, error_print, lined_print, color_print
+from utils import main_heading, lined_input, error_print, lined_print, color_print, optional_input, default_directory_paths
 
 
 def moveFile(source,destination):
@@ -115,9 +115,17 @@ def organizeFiles(directory, recursive=False):
 #Main Method
 def main():
   main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
-  TARGET_DIR = lined_input("Enter folder path to organize")
-  organizeFiles(TARGET_DIR, recursive=False)
 
+  #default folder location or manual input
+  desktop_location, downloads_location = default_directory_paths()
+  TARGET_DIR = optional_input("Choose an option or put your own directory path",["Downlaods","Desktop"],"Downloads","Target Directory")
+  if(TARGET_DIR.lower() == "downloads" or TARGET_DIR == "1"):
+    TARGET_DIR = downloads_location
+  elif(TARGET_DIR.lower()=="desktop" or TARGET_DIR == "2"):
+    TARGET_DIR = desktop_location
+  lined_print(f"Target Directory>>> {TARGET_DIR}")
+
+  organizeFiles(TARGET_DIR, recursive=False)
 
 if __name__ == "__main__":
   main()
