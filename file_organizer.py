@@ -1,6 +1,9 @@
 import os
 import shutil
 import hashlib
+import threading
+import sys
+import time
 from utils import main_heading, lined_input, error_print, lined_print, color_print, optional_input, default_directory_paths
 
 # Global counters
@@ -136,8 +139,13 @@ def organize_files(directory, recursive=False):
     except Exception:
         pass
 
+confirmation_input = None
+def get_input():
+    global confirmation_input
+    confirmation_input = input("Confirm (y/yes)")
 
 def main():
+  global confirmation_input
   main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
 
   #default folder location or manual input
@@ -148,8 +156,24 @@ def main():
   elif(target_dir.lower()=="desktop" or target_dir == "2"):
     target_dir = desktop_location
   lined_print(f"Target Directory>>> {target_dir}")
+  error_print("The Process is IRREVERSIBLE please confirm with (y/yes), ABORTING in 10 sec...",type="warning")
+  
 
-  organize_files(target_dir, recursive=False)
+  input_thread = threading.Thread(target = get_input )
+  input_thread.daemon = True
+  input_thread.start()
+  input_thread.join(timeout=10)
+  
+  if(confirmation_input and confirmation_input.strip().lower() in ['y','yes']):
+    # print("User types: org begins ", confirmation_input)
+    lined_print("Organization Confirmed!")
+    organize_files(target_dir, recursive=False)
+  else:
+      print()
+      error_print("You didn't confirmed! Program Quit", type="error")
+
+
+
 
 if __name__ == "__main__":
     main()
