@@ -4,7 +4,8 @@ from rich.text import Text
 from rich.rule import Rule
 from rich.prompt import Prompt
 from os.path import expanduser
-
+from rich.table import Table
+from rich import box
 
 console = Console()
 
@@ -77,6 +78,19 @@ def optional_input(
     choice = Prompt.ask(input_text, default=default)
     return choice
 
+# Beautiful table section
+# Create the table
+table = Table(
+    title="Organization Summary",
+    box=box.SQUARE,
+    show_header=True,
+    header_style="bold #FA5200",
+    border_style="bright_blue"
+)
+table.add_column("Action", no_wrap=True)
+table.add_column("File Name")
+table.add_column("Source")
+table.add_column("Destination")
 
 if __name__ == "__main__":
     main_heading("Main Heading", "This is the description")
@@ -88,3 +102,6 @@ if __name__ == "__main__":
     desktop, download = default_directory_paths()
     print(desktop, download)
     print(optional_input())
+    add_row_data("Copy", "report.pdf", "/home/user/docs", "/backup/docs")
+    add_row_data("Move", "image.png", "/downloads", "/pictures")
+    console.print(table)
