@@ -47,6 +47,7 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <li> Added recursive folder organization feature as outlined in [Issue-33](https://github.com/VarunBhattacharya/FolderFlow/issues/33)</li>
   <li> Implented `rich` library for better looks and visual understanding as outlined in [Issue-25](https://github.com/VarunBhattacharya/FolderFlow/issues/35)</li>
   <li> Implemented duplicate detection and automatic renaming during folder organization as outlined in [Issue-37](https://github.com/VarunBhattacharya/FolderFlow/issues/37)</li>
-  <li> Added default folder selection for downloads and desktop folders as oulined in [Issue-29](https://github.com/VarunBhattacharya/FolderFlow/issues/39)</li>
+  <li> Added default folder selection for downloads and desktop folders as outlined in [Issue-29](https://github.com/VarunBhattacharya/FolderFlow/issues/39)</li>
   <li> Implemented a confirmation feature before actually executing the program as outlined in [Issue-43](https://github.com/VarunBhattacharya/FolderFlow/issues/43</li>)
+  <li> Implemented a table to show the move action and easily understandable as outlined in [Issue-45](https://github.com/VarunBhattacharya/FolderFlow/issues/45)</li>
 </ul>
