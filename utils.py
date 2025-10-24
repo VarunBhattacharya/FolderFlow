@@ -78,7 +78,6 @@ def optional_input(
     return choice
 
 
-
 if __name__ == "__main__":
     main_heading("Main Heading", "This is the description")
     lined_input("Thsi is input prompt", "this is suggestion")
