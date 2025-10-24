@@ -102,6 +102,4 @@ if __name__ == "__main__":
     desktop, download = default_directory_paths()
     print(desktop, download)
     print(optional_input())
-    add_row_data("Copy", "report.pdf", "/home/user/docs", "/backup/docs")
-    add_row_data("Move", "image.png", "/downloads", "/pictures")
     console.print(table)
