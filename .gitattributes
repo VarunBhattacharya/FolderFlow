@@ -1,0 +1,20 @@
+# Normalize text files and ensure Git treats requirements.txt as text
+* text=auto
+
+# Force LF endings for consistency
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+
+# Explicitly ensure this file is treated as text
+requirements.txt text eol=lf
+
+# Common binary patterns
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.rar binary
+*.7z binary
