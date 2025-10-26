@@ -1,11 +1,12 @@
+from env_setup import ensure_requirements_installed
+ensure_requirements_installed()
 import os
 import shutil
 import hashlib
 import threading
-import sys
-import time
 from utils import main_heading, lined_input, error_print, lined_print, color_print, optional_input, default_directory_paths,table
 from rich.console import Console
+
 
 console = Console()
 # Global counters
