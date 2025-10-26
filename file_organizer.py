@@ -4,12 +4,17 @@ import hashlib
 import threading
 import sys
 import time
-from utils import main_heading, lined_input, error_print, lined_print, color_print, optional_input, default_directory_paths
+from utils import main_heading, lined_input, error_print, lined_print, color_print, optional_input, default_directory_paths,table
+from rich.console import Console
 
+console = Console()
 # Global counters
 duplicates_found = 0
 files_renamed = 0
 
+
+def get_folder_name(file_path):
+    return os.path.basename(os.path.dirname(file_path))
 
 def file_hash(path):
     """Return SHA256 hash of a file, or None on error."""
@@ -52,11 +57,13 @@ def move_file(source, destination):
             new_destination = generate_new_name(destination)
             shutil.move(source, new_destination)
             files_renamed += 1
-            color_print(f"Renamed + moved {source} -> {new_destination}", color="#F9A825")
+            # color_print(f"Renamed + moved {source} -> {new_destination}", color="#F9A825")
+            table.add_row("Rename + Move",os.path.basename(source), get_folder_name(source), get_folder_name(destination))
             return True
 
     shutil.move(source, destination)
-    color_print(f"Moved {source} -> {destination}", color="#51BE9F")
+    # color_print(f"Moved {source} -> {destination}", color="#51BE9F")
+    table.add_row("Move",os.path.basename(source), get_folder_name(source), get_folder_name(destination))
     return True
 
 
@@ -132,7 +139,7 @@ def organize_files(directory, recursive=False):
 
     lined_print("File organization completed.", color="green", line_style="=*=")
     color_print(f"Duplicates found: {duplicates_found}", color="#FF6F61")
-    color_print(f"Files renamed: {files_renamed}", color="#00C853")
+    color_print(f"Files renamed: {files_renamed}", color="#FF6F61")
 
     try:
         os.chdir(original_cwd)
@@ -145,33 +152,33 @@ def get_input():
     confirmation_input = input("Confirm (y/yes)")
 
 def main():
-  global confirmation_input
-  main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
+    global confirmation_input
+    main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
 
-  #default folder location or manual input
-  desktop_location, downloads_location = default_directory_paths()
-  target_dir = optional_input("Choose an option or put your own directory path",["Downlaods","Desktop"],"Downloads","Target Directory")
-  if(target_dir.lower() == "downloads" or target_dir == "1"):
-    target_dir = downloads_location
-  elif(target_dir.lower()=="desktop" or target_dir == "2"):
-    target_dir = desktop_location
-  lined_print(f"Target Directory>>> {target_dir}")
-  error_print("The Process is IRREVERSIBLE please confirm with (y/yes), ABORTING in 10 sec...",type="warning")
-  
+    #default folder location or manual input
+    desktop_location, downloads_location = default_directory_paths()
+    target_dir = optional_input("Choose an option or put your own directory path",["Downlaods","Desktop"],"Downloads","Target Directory")
+    if(target_dir.lower() == "downloads" or target_dir == "1"):
+        target_dir = downloads_location
+    elif(target_dir.lower()=="desktop" or target_dir == "2"):
+        target_dir = desktop_location
+    lined_print(f"Target Directory>>> {target_dir}")
+    error_print("The Process is IRREVERSIBLE please confirm with (y/yes), ABORTING in 10 sec...",type="warning")
+    
 
-  input_thread = threading.Thread(target = get_input )
-  input_thread.daemon = True
-  input_thread.start()
-  input_thread.join(timeout=10)
-  
-  if(confirmation_input and confirmation_input.strip().lower() in ['y','yes']):
-    # print("User types: org begins ", confirmation_input)
-    lined_print("Organization Confirmed!")
-    organize_files(target_dir, recursive=False)
-  else:
-      print()
-      error_print("You didn't confirmed! Program Quit", type="error")
-
+    input_thread = threading.Thread(target = get_input )
+    input_thread.daemon = True
+    input_thread.start()
+    input_thread.join(timeout=10)
+    
+    if(confirmation_input and confirmation_input.strip().lower() in ['y','yes']):
+        # print("User types: org begins ", confirmation_input)
+        lined_print("Organization Confirmed!")
+        organize_files(target_dir, recursive=False)
+    else:
+        print()
+        error_print("You didn't confirmed! Program Quit", type="error")
+    console.print(table)
 
 
 
