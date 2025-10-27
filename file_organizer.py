@@ -169,7 +169,7 @@ def main():
     lined_print(f"Target Directory>>> {target_dir}")
 
     print()
-    dry_run_test(file_types)
+    dry_run_test(target_dir, file_types)
     error_print("Files haven't been touched yet. The Process is IRREVERSIBLE please confirm with (y/yes), ABORTING in 15 sec...",type="warning")
     
 

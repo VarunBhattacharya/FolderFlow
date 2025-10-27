@@ -28,8 +28,8 @@ table.add_column("File Name")
 table.add_column("Destination")
 
 
-def dry_run_test(file_types):
-    for item in os.listdir():
+def dry_run_test(target, file_types):
+    for item in os.listdir(target):
         # print(f"current file: {item}", end=" | ")
         # print(categorize_file(item, file_types))
         destination = categorize_file(item, file_types)
