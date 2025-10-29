@@ -15,7 +15,7 @@ def ensure_requirements_installed(requirements_path="requirements.txt"):
                 for line in f if line.strip() and not line.startswith("#")
             }
     except FileNotFoundError:
-        print(f"❌ File not found: {requirements_path}")
+        print(f"File not found: {requirements_path}")
         sys.exit(1)
 
     # Step 2: Get installed packages
@@ -27,10 +27,10 @@ def ensure_requirements_installed(requirements_path="requirements.txt"):
     # Step 3: Install missing packages
     missing = required_pkgs - installed_pkgs
     if missing:
-        print("🚫 Missing packages detected:")
+        print("Missing packages detected:")
         for pkg in missing:
             print(f" - {pkg}")
             subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-        print("✅ All missing packages installed.")
+        print("All missing packages installed.")
     else:
-        print("✅ All required packages are already installed.")
+        print("All required packages are already installed.")
