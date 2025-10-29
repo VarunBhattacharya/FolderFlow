@@ -35,7 +35,7 @@ def error_print(text, type="error"):
         console.print(
             Panel(
                 f"[bold #FB7A1D]{text}[/]",
-                title="⚠️ Warning",
+                title="Warning",
                 border_style="#F8C733",
                 title_align="left",
             )
@@ -44,7 +44,7 @@ def error_print(text, type="error"):
         console.print(
             Panel(
                 f"[bold red]{text}[/]",
-                title="❌ Error",
+                title="Error",
                 border_style="red",
                 title_align="left",
             )
