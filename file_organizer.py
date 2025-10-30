@@ -8,6 +8,7 @@ from utils import main_heading, lined_input, error_print, lined_print, color_pri
 from rich.console import Console
 from dry_run import dry_run_test
 
+
 console = Console()
 # Global counters
 duplicates_found = 0
