@@ -6,6 +6,7 @@ import hashlib
 import threading
 from utils import main_heading, lined_input, error_print, lined_print, color_print, optional_input, default_directory_paths,table
 from rich.console import Console
+from dry_run import dry_run_test
 
 
 console = Console()
@@ -13,6 +14,23 @@ console = Console()
 duplicates_found = 0
 files_renamed = 0
 
+file_types = {
+        'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.bmp', '.tiff', '.webp', '.ico'],
+        'Videos': ['.mp4', '.mov', '.avi', '.mkv', '.flv', '.wmv', '.webm'],
+        'Documents': ['.pdf', '.doc', '.docx', '.txt', '.ppt', '.pptx', '.xls', '.xlsx', '.odt', '.rtf', '.md'],
+        'Archives': ['.zip', '.rar', '.tar', '.gz', '.7z', '.bz2', '.xz', '.iso'],
+        'Scripts': ['.py', '.sh', '.js', '.html', '.css', '.ts', '.jsx', '.tsx', '.php', '.rb', '.java', '.c', '.cpp'],
+        'Audio': ['.mp3', '.wav', '.flac', '.aac', '.ogg', '.m4a', '.wma'],
+        'Fonts': ['.ttf', '.otf', '.woff', '.woff2'],
+        'Executables': ['.exe', '.msi', '.bat', '.apk', '.app', '.deb', '.rpm'],
+        'Spreadsheets': ['.xls', '.xlsx', '.ods', '.csv'],
+        'Databases': ['.db', '.sqlite', '.sql', '.mdb', '.accdb'],
+        'Code Notebooks': ['.ipynb', '.rmd'],
+        '3D Models': ['.obj', '.fbx', '.stl', '.dae', '.gltf'],
+        'Design Files': ['.psd', '.ai', '.xd', '.sketch', '.fig'],
+        'Logs': ['.log', '.out'],
+        'Configs': ['.ini', '.cfg', '.yaml', '.yml', '.toml', '.env']
+    }
 
 def get_folder_name(file_path):
     return os.path.basename(os.path.dirname(file_path))
@@ -79,6 +97,7 @@ def categorize_file(filename, file_types):
 
 
 def organize_files(directory, recursive=False):
+    global file_types
     """Main function to organize files in a folder."""
     global duplicates_found, files_renamed
     duplicates_found = 0
@@ -91,23 +110,7 @@ def organize_files(directory, recursive=False):
         error_print(f"Directory not found: {directory}", type="error")
         return
 
-    file_types = {
-        'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.bmp', '.tiff', '.webp', '.ico'],
-        'Videos': ['.mp4', '.mov', '.avi', '.mkv', '.flv', '.wmv', '.webm'],
-        'Documents': ['.pdf', '.doc', '.docx', '.txt', '.ppt', '.pptx', '.xls', '.xlsx', '.odt', '.rtf', '.md'],
-        'Archives': ['.zip', '.rar', '.tar', '.gz', '.7z', '.bz2', '.xz', '.iso'],
-        'Scripts': ['.py', '.sh', '.js', '.html', '.css', '.ts', '.jsx', '.tsx', '.php', '.rb', '.java', '.c', '.cpp'],
-        'Audio': ['.mp3', '.wav', '.flac', '.aac', '.ogg', '.m4a', '.wma'],
-        'Fonts': ['.ttf', '.otf', '.woff', '.woff2'],
-        'Executables': ['.exe', '.msi', '.bat', '.apk', '.app', '.deb', '.rpm'],
-        'Spreadsheets': ['.xls', '.xlsx', '.ods', '.csv'],
-        'Databases': ['.db', '.sqlite', '.sql', '.mdb', '.accdb'],
-        'Code Notebooks': ['.ipynb', '.rmd'],
-        '3D Models': ['.obj', '.fbx', '.stl', '.dae', '.gltf'],
-        'Design Files': ['.psd', '.ai', '.xd', '.sketch', '.fig'],
-        'Logs': ['.log', '.out'],
-        'Configs': ['.ini', '.cfg', '.yaml', '.yml', '.toml', '.env']
-    }
+    
     category_folder_names = set(file_types.keys()) | {"Others"}
 
     lined_print(f"Starting organization in: {directory}", color="#F97910")
@@ -153,7 +156,8 @@ def get_input():
     confirmation_input = input("Confirm (y/yes)")
 
 def main():
-    global confirmation_input
+    
+    global confirmation_input, file_types
     main_heading("FOLDER FLOW", "FolderFlow: Auto-Sort Files by Type, Instantly!")
 
     #default folder location or manual input
@@ -164,22 +168,26 @@ def main():
     elif(target_dir.lower()=="desktop" or target_dir == "2"):
         target_dir = desktop_location
     lined_print(f"Target Directory>>> {target_dir}")
-    error_print("The Process is IRREVERSIBLE please confirm with (y/yes), ABORTING in 10 sec...",type="warning")
+
+    print()
+    dry_run_test(target_dir, file_types)
+    error_print("Files haven't been touched yet. The Process is IRREVERSIBLE please confirm with (y/yes), ABORTING in 15 sec...",type="warning")
     
 
     input_thread = threading.Thread(target = get_input )
     input_thread.daemon = True
     input_thread.start()
-    input_thread.join(timeout=10)
+    input_thread.join(timeout=15)
     
     if(confirmation_input and confirmation_input.strip().lower() in ['y','yes']):
         # print("User types: org begins ", confirmation_input)
         lined_print("Organization Confirmed!")
         organize_files(target_dir, recursive=False)
+        console.print(table)
     else:
         print()
         error_print("You didn't confirmed! Program Quit", type="error")
-    console.print(table)
+        exit()
 
 
 
