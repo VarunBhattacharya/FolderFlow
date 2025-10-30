@@ -51,4 +51,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <li> Implemented a confirmation feature before actually executing the program as outlined in [Issue-43](https://github.com/VarunBhattacharya/FolderFlow/issues/43</li>)
   <li> Implemented a table to show the move action and easily understandable as outlined in [Issue-45](https://github.com/VarunBhattacharya/FolderFlow/issues/45)</li>
   <li> Udated README.md according to the new changes as outlined in [Issue-47](https://github.com/VarunBhattacharya/FolderFlow/issues/47)</li>
+  <li> Implemeted auto reauirements downlaod as outlined in [Issue-48](https://github.com/VarunBhattacharya/FolderFlow/issues/48)</li>
 </ul>
