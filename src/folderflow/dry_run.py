@@ -3,6 +3,7 @@ from rich.table import Table
 from rich import box
 from rich.console import Console
 from rich.align import Align
+from .utils import error_print
 
 console = Console()
 
@@ -29,6 +30,12 @@ table.add_column("Destination")
 
 
 def dry_run_test(target, file_types):
+    try:
+        os.chdir(target)
+    except FileNotFoundError:
+        error_print(f"Directory not found: {target}", type="error")
+        exit()
+    
     for item in os.listdir(target):
         # print(f"current file: {item}", end=" | ")
         # print(categorize_file(item, file_types))

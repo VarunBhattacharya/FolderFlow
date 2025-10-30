@@ -1,8 +1,10 @@
 import subprocess
 import sys
 import importlib.metadata
+import os
 
-def ensure_requirements_installed(requirements_path="requirements.txt"):
+
+def ensure_requirements_installed(requirements_path = os.path.join(os.path.dirname(__file__), "requirements.txt")):
     """
     Ensures all packages listed in requirements.txt are installed.
     Uses importlib.metadata instead of deprecated pkg_resources.
