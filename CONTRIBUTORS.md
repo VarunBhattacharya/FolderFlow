@@ -55,4 +55,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <li> Implemented dry run mode as outlined in [Issue-51](https://github.com/VarunBhattacharya/FolderFlow/issues/51)</li>
   <li>Initial package setup and upload ot PyPI as outlined in [Issue-52](https://github.com/VarunBhattacharya/FolderFlow/issues/52)</li>
   <li> Updated README.md with latest major updates documented [Issue-53](https://github.com/VarunBhattacharya/FolderFlow/issues/53)</li>
+  <li>Demo Video added to readme with good explaination as outlined in [Issue-55](https://github.com/VarunBhattacharya/FolderFlow/issues/55)</li>
 </ul>
