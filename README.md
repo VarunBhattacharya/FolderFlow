@@ -1,5 +1,6 @@
-﻿#  FolderFlow 
+﻿# 📁 FolderFlow ✨
 
+[![PyPI version](https://img.shields.io/pypi/v/folderflow.svg)](https://pypi.org/project/folderflow/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2025-orange.svg)](https://hacktoberfest.com/)
@@ -61,71 +62,108 @@ Ever downloaded hundreds of files and ended up with a chaotic Downloads folder? 
 
 ---
 
-##  Quick Start
+## 🎉 What's New - PyPI Package!
 
-Get organized in 30 seconds!
+FolderFlow is now available as a **pip-installable package** on PyPI! 
+
+### Major Updates
+
+* **📦 PyPI Distribution**: Install with a single `pip install folderflow` command
+* **🔧 Global Command**: Run `folderflow` from anywhere after installation
+* **📁 Proper Package Structure**: Organized under `src/folderflow/` for better modularity
+* **⚙️ Package Configuration**: Modern `pyproject.toml` setup
+* **🚀 Entry Point**: Automatic CLI command registration via setuptools
+* **📚 Installable Module**: Can be imported as a Python module in your projects
+
+---
+
+## 🚀 Quick Start
+
+**Now available on PyPI!** Get organized in 10 seconds:
+
+```bash
+# Install from PyPI (Recommended)
+pip install folderflow
+
+# Run immediately
+folderflow
+
+# That's it! Choose your folder and watch the magic happen! ✨
+```
+
+**Or install from source:**
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/VarunBhattacharya/FolderFlow.git
 cd FolderFlow
 
-# 2. Install dependencies
-pip install -r requirements.txt
+# 2. Install in development mode
+pip install -e .
 
 # 3. Run FolderFlow
-python file_organizer.py
-
-# 4. Choose Downloads or Desktop (or enter custom path)
-# 5. Confirm with 'y' within 10 seconds
-# 6. Watch the magic happen! 
+folderflow
 ```
 
 ---
 
-##  Installation
+## 📦 Installation
 
 ### Prerequisites
 
 * **Python 3.8+** (tested on 3.8, 3.9, 3.10, 3.11, 3.12, 3.13)
 * **pip** (Python package manager)
-* **Required Libraries**:
-  * `rich` - For beautiful terminal output with colors, tables, and panels
 
-> **Note:** This project requires the `rich` library and is **not** limited to Python's standard library.
+### Installation Methods
 
-### Step-by-Step Installation
+**Method 1: Install from PyPI (Recommended)**
 
-**Option 1: Standard Installation**
+The easiest way to install FolderFlow is directly from PyPI:
 
 ```bash
-git clone https://github.com/VarunBhattacharya/FolderFlow.git
-cd FolderFlow
-pip install -r requirements.txt
+pip install folderflow
 ```
 
-**Option 2: Direct Download**
+After installation, you can run it from anywhere using the `folderflow` command.
+
+**Method 2: Install from Source**
+
+For development or the latest features:
+
+```bash
+# Clone the repository
+git clone https://github.com/VarunBhattacharya/FolderFlow.git
+cd FolderFlow
+
+# Install in development mode
+pip install -e .
+```
+
+**Method 3: Direct Download**
 
 1. Download the [latest release](https://github.com/VarunBhattacharya/FolderFlow/releases)
 2. Extract the ZIP file
 3. Open terminal in the extracted folder
-4. Run: `pip install -r requirements.txt`
+4. Run: `pip install .`
 
 ---
 
-##  Usage
+## 💻 Usage
 
+### Command Line Interface
+
+After installation, simply run:
 
 ```bash
-python file_organizer.py
+folderflow
 ```
 
-Follow the beautiful CLI prompts:
+The interactive CLI will guide you through:
 
 1. **Choose preset** (Downloads/Desktop) or enter custom path
 2. **Review target directory**
 3. **Confirm organization** (type `y` or `yes` within 10 seconds)
-4. **View results** in the summary table
+4. **View results** in a beautiful summary table
 
 ### Screenshots
 
@@ -247,22 +285,32 @@ Check out our [Contributors Guide](CONTRIBUTORS.md) for more details!
 
 ---
 
-##  Project Stats
+## 📊 Project Stats
 
 ```text
- file_organizer.py    # Main organization logic (187 lines)
- utils.py             # CLI utilities & styling (106 lines)
- test.py              # Unit tests
- requirements.txt     # Dependencies (rich library)
- CONTRIBUTORS.md      # Hall of fame
- README.md            # You are here!
+src/folderflow/
+├── file_organizer.py    # Main organization logic
+├── utils.py             # CLI utilities & rich formatting
+├── env_setup.py         # Environment configuration
+├── dry_run.py           # Preview mode functionality
+└── __init__.py          # Package initialization
+
+tests/
+└── test.py              # Unit tests
+
+pyproject.toml           # Package configuration & metadata
+LICENSE                  # MIT License
+CONTRIBUTORS.md          # Hall of fame
+README.md                # You are here!
 ```
 
-**Total Lines of Code:** ~300+
-
-**Dependencies:** 1 (`rich` for beautiful CLI)
-
-**Test Coverage:** Core functionality covered
+**Package Information:**
+* **PyPI Package Name:** `folderflow`
+* **Version:** 0.1.0
+* **Command:** `folderflow` (available globally after pip install)
+* **Dependencies:** `rich` (for beautiful CLI)
+* **Python Support:** 3.8+
+* **License:** MIT
 
 ---
 
@@ -284,9 +332,9 @@ See the full list in [CONTRIBUTORS.md](CONTRIBUTORS.md)
 
 ##  Acknowledgments
 
-* Built with  using [Rich](https://github.com/Textualize/rich) for beautiful terminal output
-* Inspired by the chaos of Downloads folders everywhere
-* Created for **Hacktoberfest 2025**
+* Built with Python and the open‑source ecosystem — currently using [Rich](https://github.com/Textualize/rich) for beautiful terminal output, with more libraries likely to be added as the project grows.
+* Inspired by the chaos of Downloads folders everywhere.
+* Originally started during **Hacktoberfest 2025**, and now maintained year‑round.
 
 ---
 

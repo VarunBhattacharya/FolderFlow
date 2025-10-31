@@ -22,7 +22,7 @@ These individuals have had their code contributions merged into the main branch 
   <li>DagaBhai</li>
   <li>pkbros</li>
   <li>yuvii-b</li>
-  <li>bored-arvi<li>
+  <li>bored-arvi</li>
 </ul>
 
 ---
@@ -54,4 +54,5 @@ This section is for anyone who provides valuable input, reports bugs, or suggest
   <li> Implemeted auto reauirements downlaod as outlined in [Issue-48](https://github.com/VarunBhattacharya/FolderFlow/issues/48)</li>
   <li> Implemented dry run mode as outlined in [Issue-51](https://github.com/VarunBhattacharya/FolderFlow/issues/51)</li>
   <li>Initial package setup and upload ot PyPI as outlined in [Issue-52](https://github.com/VarunBhattacharya/FolderFlow/issues/52)</li>
+  <li> Updated README.md with latest major updates documented [Issue-53](https://github.com/VarunBhattacharya/FolderFlow/issues/53)</li>
 </ul>
