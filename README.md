@@ -12,6 +12,9 @@
 
 ---
 
+## Demo
+[![Watch the demo](https://i.postimg.cc/MZs6wPFS/Screenshot-2025-10-31-195841.png)](https://drive.google.com/file/d/1FhI1VKuID5dq-snnd0P_obT9wO04HFM8/view?usp=sharing)
+
 ##  What Problem Does It Solve?
 
 Ever downloaded hundreds of files and ended up with a chaotic Downloads folder? Tired of manually sorting vacation photos, work documents, and random PDFs? **FolderFlow solves this!**
